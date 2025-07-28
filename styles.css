@@ -1,104 +1,258 @@
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    background-color: #333;
+:root {
+  --primary: #1a2233;
+  --accent: #ff8800;
+  --background: #f6f8fa;
+  --surface: #fff;
+  --text: #232433;
+  --shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
-nav ul li {
-    position: relative;
-    margin-right: 20px;
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: var(--background);
+  margin: 0;
+  color: var(--text);
 }
 
-nav ul li a {
-    display: block;
-    padding: 14px 20px;
-    color: white;
-    text-decoration: none;
+header {
+  background: var(--primary);
 }
 
-nav ul li a:hover {
-    background-color: #555;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8em 2em;
+  background: var(--primary);
+  position: relative;
+}
+
+.logo {
+  color: var(--accent);
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.9em 1em;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background 0.3s;
+  display: inline-block;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+  background: var(--accent);
+  color: #fff;
+  outline: none;
+}
+
+.has-dropdown:hover .dropdown-content,
+.has-dropdown:focus-within .dropdown-content {
+  display: block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--surface);
+  min-width: 190px;
+  box-shadow: var(--shadow);
+  z-index: 10;
+  border-radius: 6px;
+  overflow: hidden;
+  animation: dropdown-fadein 0.3s;
 }
 
-nav ul li:hover .dropdown-content {
-    display: block;
+@keyframes dropdown-fadein {
+  from { opacity: 0; transform: translateY(5px);}
+  to   { opacity: 1; transform: translateY(0);}
 }
 
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: var(--text);
+  padding: 1em 1.2em;
+  display: block;
+  background: none;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+  font-weight: 400;
 }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
+.dropdown-content a:hover,
+.dropdown-content a:focus {
+  background: #f1f2f6;
+  color: var(--accent);
 }
 
-.product-list {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+@media (max-width: 900px) {
+  .navbar {
     flex-wrap: wrap;
-    margin: 20px 0;
+    padding: 1em;
+  }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    background: var(--primary);
+    width: 180px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: var(--shadow);
+    margin: 0;
+    z-index: 20;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+  .nav-links li {
+    margin-right: 0;
+  }
+}
+
+/* Product grid */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 2em;
+  padding: 3em 2em;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .product-item {
-    text-align: center;
-    width: 30%;
-    box-sizing: border-box;
-    padding: 10px;
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  text-align: center;
+  padding: 2em 1em 1.5em 1em;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.24s, transform 0.24s;
+}
+
+.product-item:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  transform: translateY(-3px) scale(1.02);
 }
 
 .product-item img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+  max-width: 85%;
+  border-radius: 6px;
+  margin: 0 auto 1.2em auto;
+  box-shadow: 0 1px 6px rgba(32,48,90,0.10);
+  height: 180px;
+  object-fit: cover;
+  background: #e7e8ee;
+}
+
+.product-item h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  color: var(--accent);
+}
+
+.product-item p {
+  font-size: 0.95em;
+  color: #575866;
+  margin-bottom: 1.2em;
 }
 
 .add-to-cart {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: orange;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 0.97em;
+  padding: 0.8em 1.5em;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.22s, transform 0.22s;
 }
 
-.add-to-cart:active {
-    transform: scale(0.95);
+.add-to-cart:hover, .add-to-cart:focus {
+  background: #e67000;
+  transform: scale(1.05);
+  outline: none;
 }
 
+footer {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 1.2em 0;
+  font-size: 0.97em;
+  margin-top: 3em;
+}
+
+/* Modal */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.4); 
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(28,29,35, 0.48);
+  align-items: center;
+  justify-content: center;
 }
-
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 300px;
-    text-align: center;
+  background: var(--surface);
+  margin: auto;
+  padding: 2em 2.5em;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  max-width: 320px;
+  text-align: center;
+  position: relative;
+  animation: modal-fadein 0.25s;
+}
+@keyframes modal-fadein {
+  from { opacity: 0; transform: scale(0.89);}
+  to { opacity: 1; transform: scale(1.0);}
+}
+.close {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  font-size: 1.6em;
+  color: #8c8d99;
+  cursor: pointer;
+}
+.close:hover, .close:focus {
+  color: var(--accent);
+  outline: none;
 }

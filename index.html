@@ -1,71 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Site</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Shopping Site</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li>
-                <a href="#">Clothing</a>
-                <div id="dropdown1" class="dropdown-content">
-                    <a href="#">For Men</a>
-                    <a href="#">For Women</a>
-                    <a href="#">For Kids</a>
-                    <a href="#">Explore More...</a>
-                </div>
-            </li>
-            <li><a href="#">New Arrivals</a>
-                <div id="dropdown1" class="dropdown-content">
-                    <a href="#">Summer Season</a>
-                    <a href="#">Winter Season</a>
-                    <a href="#">Rainy Season</a>
-                    <a href="#">Explore More...</a>
-                </div>
-            </li>
-            <li><a href="#">Accesories</a>
-                <div id="dropdown1" class="dropdown-content">
-                    <a href="#">Shoes</a>
-                    <a href="#">Socks</a>
-                    <a href="#">Wallets</a>
-                    <a href="#">Belts</a>
-                    <a href="#">More Accesories...</a>
-                </div>
-            </li>
-            <li><a href="#">Cart</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
+  <header>
+    <nav class="navbar">
+      <div class="logo">ShopNow</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li class="has-dropdown">
+          <a href="#">Clothing</a>
+          <div class="dropdown-content">
+            <a href="#">For Men</a>
+            <a href="#">For Women</a>
+            <a href="#">For Kids</a>
+            <a href="#">Explore More...</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="#">New Arrivals</a>
+          <div class="dropdown-content">
+            <a href="#">Summer Season</a>
+            <a href="#">Winter Season</a>
+            <a href="#">Rainy Season</a>
+            <a href="#">Explore More...</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="#">Accessories</a>
+          <div class="dropdown-content">
+            <a href="#">Shoes</a>
+            <a href="#">Socks</a>
+            <a href="#">Wallets</a>
+            <a href="#">Belts</a>
+            <a href="#">More Accessories...</a>
+          </div>
+        </li>
+        <li><a id="cartBtn" href="#">Cart</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <button id="mobileMenuBtn" class="mobile-menu-btn">&#9776;</button>
     </nav>
+  </header>
 
-    <div class="product-list">
-        <div class="product-item">
-            <img src="https://images.pexels.com/photos/19981658/pexels-photo-19981658/free-photo-of-shoes-creative-plain-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Product 1">
-            <p>Nike Shoes</p>
-            <button class="add-to-cart" onclick="openModal()">Add to Cart</button>
-        </div>
-        <div class="product-item">
-            <img src="https://images.pexels.com/photos/19981659/pexels-photo-19981659/free-photo-of-sheos-creative-plain-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Product 2">
-            <p>PUMA Shoes</p>
-            <button class="add-to-cart" onclick="openModal()">Add to Cart</button>
-        </div>
-        <div class="product-item">
-            <img src="https://images.pexels.com/photos/19981660/pexels-photo-19981660/free-photo-of-shoes-creative-stylish.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Product 3">
-            <p>Adidas Shoes</p>
-            <button class="add-to-cart" onclick="openModal()">Add to Cart</button>
-        </div>
+  <main>
+    <section class="product-list">
+      <div class="product-item">
+        <img src="https://images.pexels.com/photos/19981658/pexels-photo-19981658/free-photo-of-shoes-creative-plain-background.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nike Shoes">
+        <h3>Nike Shoes</h3>
+        <p>Comfortable, stylish athletic shoes for all-day wear.</p>
+        <button class="add-to-cart" data-product="Nike Shoes">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="https://images.pexels.com/photos/19981659/pexels-photo-19981659/free-photo-of-sheos-creative-plain-background.jpeg?auto=compress&cs=tinysrgb&w=600" alt="PUMA Shoes">
+        <h3>PUMA Shoes</h3>
+        <p>Modern design running shoes with great grip.</p>
+        <button class="add-to-cart" data-product="PUMA Shoes">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="https://images.pexels.com/photos/19981660/pexels-photo-19981660/free-photo-of-shoes-creative-stylish.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Adidas Shoes">
+        <h3>Adidas Shoes</h3>
+        <p>Classic Adidas comfort meets everyday style.</p>
+        <button class="add-to-cart" data-product="Adidas Shoes">Add to Cart</button>
+      </div>
+      <!-- More products can be added in the same pattern -->
+    </section>
+  </main>
+
+  <div id="cartModal" class="modal" tabindex="-1" aria-modal="true" role="dialog">
+    <div class="modal-content">
+      <span id="closeModal" class="close" role="button" aria-label="Close modal">&times;</span>
+      <h2>Cart</h2>
+      <p>Added to cart!</p>
     </div>
+  </div>
 
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <p>Added to cart!</p>
-        </div>
-    </div>
+  <footer>
+    &copy; 2025 ShopNow. All rights reserved.
+  </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
