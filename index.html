@@ -3,87 +3,687 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Shopping Site</title>
+  <meta name="description" content="BookHaven - Your premier destination for books, magazines, and literary treasures. Discover bestsellers, new releases, and exclusive collections.">
+  <meta name="keywords" content="books, magazines, literature, bookstore, reading, fiction, non-fiction, bestsellers">
+  <meta name="author" content="BookHaven">
+  <meta property="og:title" content="BookHaven - Premium Books & Magazines">
+  <meta property="og:description" content="Discover your next great read at BookHaven. Premium books, magazines, and literary treasures await.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <title>BookHaven - Premium Books & Magazines | Literary Paradise</title>
+  
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="styles.css" as="style">
+  
+  <style>
+    :root{--primary-color:#1e3a8a;--accent-color:#d97706;--bg-primary:#ffffff;--text-primary:#0f172a;--font-sans:'Inter',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,serif}*,*::before,*::after{box-sizing:border-box}*{margin:0;padding:0}body{font-family:var(--font-sans);color:var(--text-primary);background:var(--bg-primary);overflow-x:hidden}.loading-screen{position:fixed;inset:0;background:#fefdf8;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:300}.header{position:fixed;top:0;left:0;right:0;background:var(--bg-primary);z-index:100;box-shadow:0 1px 3px 0 rgba(0,0,0,0.1)}
+  </style>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="styles.css">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">ShopNow</div>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li class="has-dropdown">
-          <a href="#">Clothing</a>
-          <div class="dropdown-content">
-            <a href="#">For Men</a>
-            <a href="#">For Women</a>
-            <a href="#">For Kids</a>
-            <a href="#">Explore More...</a>
-          </div>
-        </li>
-        <li class="has-dropdown">
-          <a href="#">New Arrivals</a>
-          <div class="dropdown-content">
-            <a href="#">Summer Season</a>
-            <a href="#">Winter Season</a>
-            <a href="#">Rainy Season</a>
-            <a href="#">Explore More...</a>
-          </div>
-        </li>
-        <li class="has-dropdown">
-          <a href="#">Accessories</a>
-          <div class="dropdown-content">
-            <a href="#">Shoes</a>
-            <a href="#">Socks</a>
-            <a href="#">Wallets</a>
-            <a href="#">Belts</a>
-            <a href="#">More Accessories...</a>
-          </div>
-        </li>
-        <li><a id="cartBtn" href="#">Cart</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
-      <button id="mobileMenuBtn" class="mobile-menu-btn">&#9776;</button>
-    </nav>
-  </header>
-
-  <main>
-    <section class="product-list">
-      <div class="product-item">
-        <img src="https://images.pexels.com/photos/19981658/pexels-photo-19981658/free-photo-of-shoes-creative-plain-background.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nike Shoes">
-        <h3>Nike Shoes</h3>
-        <p>Comfortable, stylish athletic shoes for all-day wear.</p>
-        <button class="add-to-cart" data-product="Nike Shoes">Add to Cart</button>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <span class="logo-icon">📚</span>
+        <h1>BookHaven</h1>
+        <p>Literary Paradise</p>
       </div>
-      <div class="product-item">
-        <img src="https://images.pexels.com/photos/19981659/pexels-photo-19981659/free-photo-of-sheos-creative-plain-background.jpeg?auto=compress&cs=tinysrgb&w=600" alt="PUMA Shoes">
-        <h3>PUMA Shoes</h3>
-        <p>Modern design running shoes with great grip.</p>
-        <button class="add-to-cart" data-product="PUMA Shoes">Add to Cart</button>
-      </div>
-      <div class="product-item">
-        <img src="https://images.pexels.com/photos/19981660/pexels-photo-19981660/free-photo-of-shoes-creative-stylish.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Adidas Shoes">
-        <h3>Adidas Shoes</h3>
-        <p>Classic Adidas comfort meets everyday style.</p>
-        <button class="add-to-cart" data-product="Adidas Shoes">Add to Cart</button>
-      </div>
-      <!-- More products can be added in the same pattern -->
-    </section>
-  </main>
-
-  <div id="cartModal" class="modal" tabindex="-1" aria-modal="true" role="dialog">
-    <div class="modal-content">
-      <span id="closeModal" class="close" role="button" aria-label="Close modal">&times;</span>
-      <h2>Cart</h2>
-      <p>Added to cart!</p>
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Preparing your literary journey...</div>
     </div>
   </div>
 
-  <footer>
-    &copy; 2025 ShopNow. All rights reserved.
+  <header class="header">
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-bar-content">
+          <div class="contact-info">
+            <span><i class="fas fa-phone"></i> +1 (555) 123-BOOK</span>
+            <span><i class="fas fa-envelope"></i> support@bookhaven.com</span>
+          </div>
+          <div class="top-bar-links">
+            <a href="#" class="language-selector">
+              <i class="fas fa-globe"></i> EN
+            </a>
+            <a href="#" class="currency-selector">USD</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo">
+            <h1>BookHaven</h1>
+            <span class="tagline">Literary Paradise</span>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="nav-link">Categories <i class="fas fa-chevron-down"></i></a>
+              <div class="dropdown-menu">
+                <div class="dropdown-content">
+                  <div class="dropdown-section">
+                    <h4>Fiction</h4>
+                    <a href="#">Mystery & Thriller</a>
+                    <a href="#">Romance</a>
+                    <a href="#">Science Fiction</a>
+                    <a href="#">Fantasy</a>
+                    <a href="#">Literary Fiction</a>
+                    <a href="#">Historical Fiction</a>
+                  </div>
+                  <div class="dropdown-section">
+                    <h4>Non-Fiction</h4>
+                    <a href="#">Biography</a>
+                    <a href="#">Self-Help</a>
+                    <a href="#">Business</a>
+                    <a href="#">History</a>
+                    <a href="#">Science</a>
+                    <a href="#">Technology</a>
+                  </div>
+                  <div class="dropdown-section">
+                    <h4>Magazines</h4>
+                    <a href="#">New Issues</a>
+                    <a href="#">Lifestyle</a>
+                    <a href="#">Technology</a>
+                    <a href="#">Fashion</a>
+                    <a href="#">Travel</a>
+                    <a href="#">Subscriptions</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="#bestsellers" class="nav-link">Bestsellers</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+
+          <div class="nav-actions">
+            <button class="search-btn" title="Search Books & Magazines" aria-label="Open search">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+            <button class="wishlist-btn" title="Reading List" aria-label="View reading list">
+              <i class="far fa-bookmark" aria-hidden="true"></i>
+              <span class="count" id="wishlistCount" aria-label="Items in reading list">0</span>
+            </button>
+            <button id="cartBtn" class="cart-btn" title="Shopping Cart" aria-label="View shopping cart">
+              <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+              <span class="count" id="cartCount" aria-label="Items in cart">0</span>
+            </button>
+            <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div id="searchOverlay" class="search-overlay">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search for books, authors, genres, magazines...">
+        <button class="search-submit" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+        <button id="searchClose" class="search-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="search-suggestions">
+        <div class="suggestion-category">
+          <h4>Popular Searches</h4>
+          <div class="suggestion-items">
+            <span class="suggestion-tag">Stephen King</span>
+            <span class="suggestion-tag">Business Books</span>
+            <span class="suggestion-tag">New Releases</span>
+            <span class="suggestion-tag">Science Fiction</span>
+            <span class="suggestion-tag">Magazines</span>
+            <span class="suggestion-tag">Bestsellers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section id="home" class="hero" aria-label="Featured content">
+      <div class="hero-slider" role="region" aria-label="Image carousel">
+        <div class="hero-slide active" role="tabpanel" aria-label="Slide 1 of 2">
+          <div class="hero-bg" style="background-image: url('https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')" role="img" aria-label="Bookstore interior with shelves of books"></div>
+          <div class="container">
+            <div class="hero-content">
+              <div class="hero-text">
+                <h1 class="hero-title">Discover Your Next <span class="highlight">Great Read</span></h1>
+                <p class="hero-subtitle">Explore our vast collection of books, magazines, and literary treasures. From bestselling novels to rare first editions, find your perfect literary companion.</p>
+                <div class="hero-actions">
+                  <button class="btn btn-primary" onclick="scrollToSection('categories')">
+                    <i class="fas fa-book-open" aria-hidden="true"></i>
+                    <span>Browse Books</span>
+                  </button>
+                  <button class="btn btn-secondary" onclick="scrollToSection('products')">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <span>New Releases</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-slide" role="tabpanel" aria-label="Slide 2 of 2">
+          <div class="hero-bg" style="background-image: url('https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')" role="img" aria-label="Collection of magazines"></div>
+          <div class="container">
+            <div class="hero-content">
+              <div class="hero-text">
+                <h1 class="hero-title">Premium <span class="highlight">Magazine Collection</span></h1>
+                <p class="hero-subtitle">Stay updated with the latest issues of your favorite magazines. From lifestyle to technology, discover fresh perspectives and trending topics.</p>
+                <div class="hero-actions">
+                  <button class="btn btn-primary" onclick="filterProducts('magazines')">
+                    <i class="fas fa-newspaper" aria-hidden="true"></i>
+                    <span>Shop Magazines</span>
+                  </button>
+                  <button class="btn btn-secondary">
+                    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                    <span>Subscriptions</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button id="heroPrev" class="hero-nav-btn prev" aria-label="Previous slide">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </button>
+      <button id="heroNext" class="hero-nav-btn next" aria-label="Next slide">
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+      </button>
+
+      <div class="hero-indicators" role="tablist" aria-label="Slide indicators">
+        <button class="indicator active" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
+        <button class="indicator" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-shipping-fast"></i>
+            </div>
+            <h3>Free Shipping</h3>
+            <p>Free shipping on all book orders over $35 worldwide</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3>Preview Pages</h3>
+            <p>Read sample chapters before you buy</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-medal"></i>
+            </div>
+            <h3>Quality Guarantee</h3>
+            <p>Only authentic books and magazines from trusted publishers</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-sync"></i>
+            </div>
+            <h3>Easy Returns</h3>
+            <p>30-day return policy on all purchases</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="categories">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Browse by Genre</h2>
+          <p class="section-subtitle">Discover books and magazines across all your favorite genres and topics</p>
+        </div>
+        <div class="categories-grid">
+          <div class="category-card">
+            <div class="category-image">
+              <img src="https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Fiction Books">
+            </div>
+            <div class="category-content">
+              <h3>Fiction</h3>
+              <p>Immerse yourself in captivating stories and imaginative worlds</p>
+              <button class="btn btn-outline">Explore Fiction</button>
+            </div>
+          </div>
+          <div class="category-card">
+            <div class="category-image">
+              <img src="https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Non-Fiction Books">
+            </div>
+            <div class="category-content">
+              <h3>Non-Fiction</h3>
+              <p>Learn, grow, and discover with our extensive non-fiction collection</p>
+              <button class="btn btn-outline">Browse Non-Fiction</button>
+            </div>
+          </div>
+          <div class="category-card">
+            <div class="category-image">
+              <img src="https://images.pexels.com/photos/1319854/pexels-photo-1319854.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Magazines">
+            </div>
+            <div class="category-content">
+              <h3>Magazines</h3>
+              <p>Stay current with the latest magazines and periodicals</p>
+              <button class="btn btn-outline">Shop Magazines</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Books & Magazines</h2>
+          <p class="section-subtitle">Handpicked selections from our curated collection</p>
+        </div>
+
+        <div class="product-filters">
+          <button class="filter-btn active" data-filter="all">All Items</button>
+          <button class="filter-btn" data-filter="fiction">Fiction</button>
+          <button class="filter-btn" data-filter="non-fiction">Non-Fiction</button>
+          <button class="filter-btn" data-filter="magazines">Magazines</button>
+          <button class="filter-btn" data-filter="bestsellers">Bestsellers</button>
+        </div>
+
+        <div id="productsGrid" class="products-grid">
+          <div class="product-card" data-category="fiction">
+            <div class="product-image">
+              <img src="https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg?auto=compress&cs=tinysrgb&w=400" alt="The Midnight Library">
+              <div class="product-badge new">New</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn" data-product="1">Quick View</button>
+                <button class="wishlist-btn-product" data-product="1"><i class="far fa-bookmark"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-category">Fiction</div>
+              <h3 class="product-title">The Midnight Library</h3>
+              <div class="product-author">by Matt Haig</div>
+              <div class="product-rating">
+                <div class="stars" aria-label="5 out of 5 stars">
+                  <i class="fas fa-star" aria-hidden="true"></i>
+                  <i class="fas fa-star" aria-hidden="true"></i>
+                  <i class="fas fa-star" aria-hidden="true"></i>
+                  <i class="fas fa-star" aria-hidden="true"></i>
+                  <i class="fas fa-star" aria-hidden="true"></i>
+                </div>
+                <span class="rating-count">(1,247 reviews)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$16.99</span>
+                <span class="original-price">$24.99</span>
+              </div>
+              <button class="add-to-cart-btn" data-product="The Midnight Library" data-price="16.99" data-id="1" aria-label="Add The Midnight Library to cart">
+                <i class="fas fa-shopping-cart" aria-hidden="true"></i> 
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="non-fiction">
+            <div class="product-image">
+              <img src="https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Atomic Habits">
+              <div class="product-badge bestsellers">Bestseller</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn" data-product="2">Quick View</button>
+                <button class="wishlist-btn-product" data-product="2"><i class="far fa-bookmark"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-category">Self-Help</div>
+              <h3 class="product-title">Atomic Habits</h3>
+              <div class="product-author">by James Clear</div>
+              <div class="product-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-count">(2,156)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$18.99</span>
+              </div>
+              <button class="add-to-cart-btn" data-product="Atomic Habits" data-price="18.99" data-id="2">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="fiction">
+            <div class="product-image">
+              <img src="https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dune">
+              <div class="product-badge trending">Classic</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn" data-product="3">Quick View</button>
+                <button class="wishlist-btn-product" data-product="3"><i class="far fa-bookmark"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-category">Science Fiction</div>
+              <h3 class="product-title">Dune</h3>
+              <div class="product-author">by Frank Herbert</div>
+              <div class="product-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-count">(3,421)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$14.99</span>
+                <span class="original-price">$19.99</span>
+              </div>
+              <button class="add-to-cart-btn" data-product="Dune" data-price="14.99" data-id="3">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="magazines">
+            <div class="product-image">
+              <img src="https://images.pexels.com/photos/1319854/pexels-photo-1319854.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tech Today Magazine">
+              <div class="product-overlay">
+                <button class="quick-view-btn" data-product="4">Quick View</button>
+                <button class="wishlist-btn-product" data-product="4"><i class="far fa-bookmark"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-category">Technology</div>
+              <h3 class="product-title">Tech Today Magazine</h3>
+              <div class="product-author">Latest Issue - March 2024</div>
+              <div class="product-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="rating-count">(89)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$8.99</span>
+              </div>
+              <button class="add-to-cart-btn" data-product="Tech Today Magazine" data-price="8.99" data-id="4">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="non-fiction">
+            <div class="product-image">
+              <img src="https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Sapiens">
+              <div class="product-overlay">
+                <button class="quick-view-btn" data-product="5">Quick View</button>
+                <button class="wishlist-btn-product" data-product="5"><i class="far fa-bookmark"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-category">History</div>
+              <h3 class="product-title">Sapiens</h3>
+              <div class="product-author">by Yuval Noah Harari</div>
+              <div class="product-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-count">(1,892)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$19.99</span>
+              </div>
+              <button class="add-to-cart-btn" data-product="Sapiens" data-price="19.99" data-id="5">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="magazines">
+            <div class="product-image">
+              <img src="https://images.pexels.com/photos/1390574/pexels-photo-1390574.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Literary Review">
+              <div class="product-badge new">New Issue</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn" data-product="6">Quick View</button>
+                <button class="wishlist-btn-product" data-product="6"><i class="far fa-bookmark"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-category">Literature</div>
+              <h3 class="product-title">Literary Review</h3>
+              <div class="product-author">Spring Edition 2024</div>
+              <div class="product-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="rating-count">(156)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$12.99</span>
+              </div>
+              <button class="add-to-cart-btn" data-product="Literary Review" data-price="12.99" data-id="6">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="load-more">
+          <button id="loadMoreBtn" class="btn btn-outline">Load More Items</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" aria-label="Newsletter signup">
+      <div class="container">
+        <div class="newsletter-content">
+          <div class="newsletter-text">
+            <h2>Join Our Reading Community</h2>
+            <p>Subscribe to get book recommendations, author interviews, and exclusive offers delivered to your inbox.</p>
+            <div class="newsletter-benefits">
+              <span><i class="fas fa-check-circle" aria-hidden="true"></i> Weekly book recommendations</span>
+              <span><i class="fas fa-check-circle" aria-hidden="true"></i> Exclusive discounts</span>
+              <span><i class="fas fa-check-circle" aria-hidden="true"></i> Author interviews</span>
+              <span><i class="fas fa-check-circle" aria-hidden="true"></i> New release alerts</span>
+            </div>
+          </div>
+          <form class="newsletter-form" aria-label="Newsletter subscription">
+            <div class="form-group">
+              <label for="newsletter-email" class="sr-only">Email address</label>
+              <input type="email" id="newsletter-email" placeholder="Enter your email address" required aria-describedby="email-help">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                <span>Subscribe</span>
+              </button>
+            </div>
+            <small id="email-help" class="form-help">We respect your privacy. Unsubscribe at any time.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <button id="cartClose" class="cart-close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div id="cartContent" class="cart-content">
+      <div class="empty-cart">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Your cart is empty</p>
+        <button class="btn btn-primary" onclick="closeCartSidebar()">Continue Shopping</button>
+      </div>
+    </div>
+    <div id="cartFooter" class="cart-footer" style="display: none;">
+      <div class="cart-total">
+        <div class="subtotal">
+          <span>Subtotal:</span>
+          <span id="cartSubtotal">$0.00</span>
+        </div>
+        <div class="shipping">
+          <span>Shipping:</span>
+          <span>Free</span>
+        </div>
+        <div class="total">
+          <span>Total:</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+      </div>
+      <div class="cart-actions">
+        <button class="btn btn-outline">View Cart</button>
+        <button class="btn btn-primary">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="quickViewModal" class="modal-overlay">
+    <div class="quick-view-modal">
+      <button id="quickViewClose" class="modal-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="quick-view-content">
+        <div class="quick-view-image">
+          <img id="quickViewImage" src="" alt="Product">
+        </div>
+        <div class="quick-view-info">
+          <div id="quickViewCategory" class="product-category"></div>
+          <h2 id="quickViewTitle"></h2>
+          <div id="quickViewRating" class="product-rating"></div>
+          <div id="quickViewPrice" class="product-price"></div>
+          <p class="product-description">
+            Discover captivating stories, insightful knowledge, and literary excellence. Each book in our collection is carefully selected for quality and reader satisfaction.
+          </p>
+          <div class="product-options">
+            <div class="format-selection">
+              <label>Format:</label>
+              <div class="size-options">
+                <button class="size-btn active">Paperback</button>
+                <button class="size-btn">Hardcover</button>
+                <button class="size-btn">E-book</button>
+                <button class="size-btn">Audiobook</button>
+              </div>
+            </div>
+            <div class="quantity-selector">
+              <label>Quantity:</label>
+              <div class="quantity-controls">
+                <button class="qty-btn minus">-</button>
+                <input type="number" class="qty-input" value="1" min="1" max="10">
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="quick-view-actions">
+            <button class="btn btn-primary">Add to Cart</button>
+            <button class="btn btn-outline">Add to Reading List</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h3>BookHaven</h3>
+          <p>Your premier destination for books, magazines, and literary treasures. We curate the finest collection to inspire your reading journey.</p>
+          <div class="social-links">
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Author Corner</a></li>
+            <li><a href="#">Book Club</a></li>
+            <li><a href="#">Gift Cards</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#">Fiction</a></li>
+            <li><a href="#">Non-Fiction</a></li>
+            <li><a href="#">Magazines</a></li>
+            <li><a href="#">New Releases</a></li>
+            <li><a href="#">Bestsellers</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2024 BookHaven. All rights reserved.</p>
+          <div class="payment-methods">
+            <i class="fab fa-cc-visa" title="Visa"></i>
+            <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+            <i class="fab fa-cc-amex" title="American Express"></i>
+            <i class="fab fa-cc-paypal" title="PayPal"></i>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <button id="backToTop" class="back-to-top" title="Back to Top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
   <script src="script.js"></script>
 </body>
 </html>
+
